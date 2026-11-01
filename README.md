@@ -61,6 +61,7 @@ cd constitution
 | Claude Code | `claude plugin install phanijapps/constitution` | `~/.claude/skills/constitution` |
 | Codex | `curl ... install.sh \| bash` (option 2) | `~/.agents/skills/constitution` |
 | Cursor | `curl ... install.sh \| bash` (option 3) | `~/.cursor/skills/constitution` |
+| Kiro | `curl ... install.sh \| bash` (option 4) | `~/.kiro/skills/constitution` |
 | GitHub Copilot | `curl ... install.sh \| bash` (option 4) | `.github/skills/constitution` |
 | Generic | `curl ... install.sh \| bash` (option 5) | `~/.agents/skills/constitution` |
 

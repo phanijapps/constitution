@@ -44,10 +44,11 @@ echo ""
 echo "  1) Claude Code     (~/.claude/skills/)"
 echo "  2) Codex           (~/.agents/skills/)"
 echo "  3) Cursor          (~/.cursor/skills/)"
-echo "  4) GitHub Copilot  (.github/skills/ in current repo)"
-echo "  5) All (Claude + Codex + Cursor)"
+echo "  4) Kiro IDE/CLI     (~/.kiro/skills/)"
+echo "  5) GitHub Copilot  (.github/skills/ in current repo)"
+echo "  6) All (Claude + Codex + Cursor + Kiro)"
 echo ""
-read -rp "  Enter number [1-5]: " choice
+read -rp "  Enter number [1-6]: " choice
 echo ""
 
 install_to() {
@@ -62,15 +63,17 @@ case "$choice" in
   1) install_to "$HOME/.claude/skills" ;;
   2) install_to "$HOME/.agents/skills" ;;
   3) install_to "$HOME/.cursor/skills" ;;
-  4)
+  4) install_to "$HOME/.kiro/skills" ;;
+  5)
     read -rp "  Path to repo root (default: current dir): " repo
     repo="${repo:-$(pwd)}"
     install_to "$repo/.github/skills"
     ;;
-  5)
+  6)
     install_to "$HOME/.claude/skills"
     install_to "$HOME/.agents/skills"
     install_to "$HOME/.cursor/skills"
+    install_to "$HOME/.kiro/skills"
     ;;
   *) echo "  invalid choice: $choice" >&2; exit 1 ;;
 esac
@@ -81,7 +84,8 @@ case "$choice" in
   1) echo "    python3 ~/.claude/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
   2) echo "    python3 ~/.agents/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
   3) echo "    python3 ~/.cursor/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
-  4) echo "    python3 .github/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
-  5) echo "    python3 ~/.claude/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  4) echo "    python3 ~/.kiro/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  5) echo "    python3 .github/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  6) echo "    python3 ~/.claude/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
 esac
 echo ""
