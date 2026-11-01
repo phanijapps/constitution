@@ -1,7 +1,6 @@
 # Writing style (controlled English, mechanically enforced)
 
-Inspired by ASD-STE100 (aerospace controlled English). We enforce the
-mechanical, lintable subset; vocabulary purity is human-reviewed.
+We enforce the mechanical, lintable subset; vocabulary purity is human-reviewed.
 
 ## Procedural register (rules/<ID>.md, statements)
 - One instruction per sentence. Sentences <= 20 words.
