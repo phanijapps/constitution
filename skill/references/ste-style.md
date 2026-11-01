@@ -1,7 +1,7 @@
-# ASD-STE100 house style (mechanical subset we enforce)
+# Writing style (controlled English, mechanically enforced)
 
-The full ASD-STE100 spec (53 rules, ~900-word dictionary) is proprietary. We
-adopt the mechanical, lintable subset; dictionary purity is human-reviewed.
+Inspired by ASD-STE100 (aerospace controlled English). We enforce the
+mechanical, lintable subset; vocabulary purity is human-reviewed.
 
 ## Procedural register (rules/<ID>.md, statements)
 - One instruction per sentence. Sentences <= 20 words.

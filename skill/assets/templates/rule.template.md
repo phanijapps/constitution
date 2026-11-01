@@ -1,9 +1,5 @@
 # {{RULE_ID}}
 
-<!-- ASD-STE100 procedural register: one instruction per sentence, <= 20
-     words, active voice, BCP 14 keywords. This file is the single home of
-     {{RULE_ID}}. -->
-
 | Field | Value |
 |---|---|
 | Pack | {{PACK}} |

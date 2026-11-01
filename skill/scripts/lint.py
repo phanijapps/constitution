@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Portable STE lint (ASD-STE100 mechanical subset) for any constitution tree.
+"""Portable STE lint (controlled-English mechanical subset) for any constitution tree.
 Usage: lint.py <repo> [--strict]. Sentence caps + passive voice heuristic."""
 import re, sys
 from pathlib import Path
