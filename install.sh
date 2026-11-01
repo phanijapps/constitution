@@ -9,7 +9,7 @@ REPO_URL="https://github.com/phanijapps/constitution"
 SKILL_NAME="constitution"
 
 # Detect mode: piped (stdin is not a tty) vs local (script file exists)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && pwd || echo "")"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-}")" 2>/dev/null && pwd || echo "")"
 TEMP_DIR=""
 
 if [ -n "$SCRIPT_DIR" ] && [ -d "$SCRIPT_DIR/skill" ]; then
@@ -48,7 +48,7 @@ echo "  4) Kiro IDE/CLI     (~/.kiro/skills/)"
 echo "  5) GitHub Copilot  (.github/skills/ in current repo)"
 echo "  6) All (Claude + Codex + Cursor + Kiro)"
 echo ""
-read -rp "  Enter number [1-6]: " choice
+read -rp "  Enter number [1-6]: " choice < /dev/tty || { echo "  error: interactive input required (run locally instead)" >&2; exit 1; }
 echo ""
 
 install_to() {
@@ -65,7 +65,7 @@ case "$choice" in
   3) install_to "$HOME/.cursor/skills" ;;
   4) install_to "$HOME/.kiro/skills" ;;
   5)
-    read -rp "  Path to repo root (default: current dir): " repo
+    read -rp "  Path to repo root (default: current dir): " repo < /dev/tty || repo="$(pwd)"
     repo="${repo:-$(pwd)}"
     install_to "$repo/.github/skills"
     ;;

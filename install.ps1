@@ -8,7 +8,7 @@ $SkillName = "constitution"
 $TempDir = $null
 
 # Detect mode: local if script file exists, remote if piped
-$ScriptDir = if ($MyInvocation.MyCommand.Path) { Split-Path $MyInvocation.MyCommand.Path } else { $null }
+$ScriptDir = if ($MyInvocation.MyCommand -and $MyInvocation.MyCommand.Path) { Split-Path $MyInvocation.MyCommand.Path } else { $null }
 $SkillDir = if ($ScriptDir -and (Test-Path (Join-Path $ScriptDir "skill"))) {
     Join-Path $ScriptDir "skill"
 } else {
