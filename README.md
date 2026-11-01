@@ -27,18 +27,44 @@ any repository — plus the tooling to keep them honest.
 | **Style** | Not addressed | **ASD-STE100 subset**: ≤20-word procedural, ≤25-word descriptive, lintable |
 | **Incidents** | Not addressed | **Root-cause index**: counterexamples are pre-written postmortems |
 
-## Quick start
+## Install
+
+### One-liner (works from anywhere)
 
 ```bash
-# Linux/Mac
-./install.sh
+# Linux / macOS
+curl -fsSL https://raw.githubusercontent.com/phanijapps/constitution/main/install.sh | bash
 
 # Windows PowerShell
-.\install.ps1
+irm https://raw.githubusercontent.com/phanijapps/constitution/main/install.ps1 | iex
 ```
 
-The installer asks you to select your coding agent (a CI workflow template is included at `.github/workflows/constitution.yml` — copy it to your repo and adjust the skill path) (Claude Code, Codex, Cursor, etc.)
-and copies the skill to the right location.
+### Plugin install
+
+```bash
+# Claude Code
+claude plugin install phanijapps/constitution
+```
+
+### From your workspace
+
+```bash
+git clone https://github.com/phanijapps/constitution
+cd constitution
+./install.sh        # Linux/Mac (or .\install.ps1 on Windows)
+```
+
+### All install paths
+
+| Agent | Command | Install path |
+|---|---|---|
+| Claude Code | `claude plugin install phanijapps/constitution` | `~/.claude/skills/constitution` |
+| Codex | `curl ... install.sh \| bash` (option 2) | `~/.agents/skills/constitution` |
+| Cursor | `curl ... install.sh \| bash` (option 3) | `~/.cursor/skills/constitution` |
+| GitHub Copilot | `curl ... install.sh \| bash` (option 4) | `.github/skills/constitution` |
+| Generic | `curl ... install.sh \| bash` (option 5) | `~/.agents/skills/constitution` |
+
+A CI workflow template is included at `.github/workflows/constitution.yml`.
 
 ## What you get
 
