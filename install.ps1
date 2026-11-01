@@ -60,11 +60,7 @@ switch ($choice) {
     "2" { Install-To ".agents\skills" }
     "3" { Install-To ".cursor\skills" }
     "4" { Install-To ".kiro\skills" }
-    "5" {
-        $repo = Read-Host "  Path to repo root (default: current dir)"
-        if ([string]::IsNullOrWhiteSpace($repo)) { $repo = (Get-Location).Path }
-        Install-To (Join-Path $repo ".github\skills")
-    }
+    "5" { Install-To ".github\skills" }
     "6" {
         Install-To ".claude\skills"
         Install-To ".agents\skills"
