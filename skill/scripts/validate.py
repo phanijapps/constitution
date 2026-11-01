@@ -2,7 +2,7 @@
 """Validate a constitution tree (portable, stdlib only).
 
 Checks: root INDEX exists; every pack has 00-INDEX.md + knowledge.md +
-rules/*.md; catalogue rule paths exist; rule IDs unique + sentence length check. Exit 1 on structural failure; STE findings are advisory
+rules/*.md; catalogue rule paths exist; rule IDs unique + sentence length check. Exit 1 on structural failure; length findings are advisory
 unless --strict.
 """
 import json, re, sys

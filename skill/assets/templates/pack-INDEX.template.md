@@ -19,7 +19,7 @@ for a different codebase (anti-generic test) and live one-per-file.
 
 ## Rule index
 
-| ID | Rule (one line, STE) | File |
+| ID | Rule (one line) | File |
 |---|---|---|
 {{RULE_ROWS}}
 

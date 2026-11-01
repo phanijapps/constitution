@@ -7,7 +7,7 @@ description: Build, grow, and MAINTAIN a Software Constitution for ANY repositor
 
 Turn a repository's actual law — or a greenfield owner's intent — into a
 federated constitution: knowledge and rules in ONE tree, one rule per file,
-STE-compliant, catalogue-machined. You are the analyst-drafter; the OWNER
+catalogue-machined. You are the analyst-drafter; the OWNER
 legislates.
 
 ## Layout (this skill)
@@ -21,7 +21,7 @@ scripts/             scaffold.py (greenfield|brownfield|module skeleton) ·
                      derive_catalogue.py (lane 1: regenerate the registry) ·
                      health.py (lane 2: detect size law, drift, orphans) ·
                      query.py (search rules, knowledge, runbooks by terms) ·
-                     validate.py (structure + catalogue) · lint.py (STE)
+                     validate.py (structure + catalogue) · lint.py (length)
 evals/               test_scaffold.py (6 tests)
 ```
 
