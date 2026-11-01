@@ -1,18 +1,23 @@
 name: Constitution
 on: [push, pull_request]
-# NOTE: this workflow checks the constitution project's own skill.
-# In YOUR repo, update the paths to wherever you installed the skill
-# (e.g. .github/skills/constitution/scripts/ for Copilot, or
-#  ~/.agents/skills/constitution/scripts/ for Codex).
 jobs:
-  gates:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - name: Derive catalogue (blocking)
-        run: python3 skill/scripts/derive_catalogue.py .
-      - name: Constitution health (advisory)
-        run: python3 skill/scripts/health.py .
-        continue-on-error: true
+      - name: Run skill evals
+        run: python3 skill/evals/test_scaffold.py
+      - name: Validate portable scripts
+        run: |
+          python3 skill/scripts/scaffold.py --repo /tmp/const-check --mode greenfield
+          python3 skill/scripts/derive_catalogue.py /tmp/const-check
+          python3 skill/scripts/health.py /tmp/const-check
+          python3 skill/scripts/validate.py /tmp/const-check
+  # NOTE: in YOUR repo (after you build a constitution), add:
+  #   - name: Derive catalogue (blocking)
+  #     run: python3 <skill-path>/scripts/derive_catalogue.py .
+  #   - name: Constitution health (advisory)
+  #     run: python3 <skill-path>/scripts/health.py .
+  #     continue-on-error: true
