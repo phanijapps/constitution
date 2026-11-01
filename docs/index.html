@@ -1,126 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>constitution — the self-managing software constitution</title>
-  <style>
-    :root { color-scheme: light dark; }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; background: #0d1117; color: #c9d1d9; }
-    .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
-    header { text-align: center; padding: 3rem 0 2rem; }
-    h1 { font-size: 2.2rem; color: #58a6ff; margin-bottom: .5rem; }
-    .tagline { font-size: 1.15rem; color: #8b949e; }
-    .badges { margin: 1.5rem 0; }
-    .badge { display: inline-block; padding: .25rem .75rem; border-radius: 1rem; font-size: .85rem; margin: .25rem; }
-    .badge-blue { background: #1f6feb33; color: #58a6ff; }
-    .badge-green { background: #23863633; color: #3fb950; }
-    .badge-purple { background: #8957e533; color: #bc8cff; }
-    section { margin: 2.5rem 0; }
-    h2 { font-size: 1.5rem; color: #58a6ff; margin-bottom: 1rem; border-bottom: 1px solid #21262d; padding-bottom: .5rem; }
-    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
-    th, td { padding: .6rem .8rem; text-align: left; border: 1px solid #21262d; }
-    th { background: #161b22; color: #58a6ff; }
-    td { color: #c9d1d9; }
-    code { background: #161b22; padding: .2rem .4rem; border-radius: .25rem; font-size: .9em; color: #79c0ff; }
-    pre { background: #161b22; padding: 1rem; border-radius: .5rem; overflow-x: auto; border: 1px solid #21262d; }
-    pre code { background: none; padding: 0; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .card { background: #161b22; border: 1px solid #21262d; border-radius: .5rem; padding: 1.2rem; }
-    .card h3 { color: #58a6ff; font-size: 1rem; margin-bottom: .4rem; }
-    .card p { font-size: .9rem; color: #8b949e; }
-    footer { text-align: center; padding: 2rem 0; color: #484f58; font-size: .85rem; border-top: 1px solid #21262d; }
-    a { color: #58a6ff; text-decoration: none; } a:hover { text-decoration: underline; }
-    .lanes { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
-    .lane { flex: 1; min-width: 200px; background: #161b22; border-radius: .5rem; padding: 1rem; border-top: 3px solid; }
-    .lane-derived { border-color: #3fb950; } .lane-detect { border-color: #d29922; } .lane-human { border-color: #f85149; }
-    .lane h3 { font-size: .95rem; margin-bottom: .3rem; } .lane p { font-size: .85rem; color: #8b949e; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>constitution</title>
+  <meta name="description" content="The self-managing software constitution — build it, ground it, maintain it, query it.">
+  <link rel="canonical" href="https://phanijapps.github.io/constitution/">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>constitution</h1>
-      <p class="tagline">The self-managing software constitution — build it, ground it, maintain it, query it.</p>
-      <div class="badges">
-        <span class="badge badge-blue">v1.0</span>
-        <span class="badge badge-green">Apache-2.0</span>
-        <span class="badge badge-purple">inspired by software/constitution™</span>
-      </div>
-    </header>
-
-    <section>
-      <h2>Why</h2>
-      <p>Software projects accumulate rules — design invariants, security constraints, testing discipline — that live in tribal knowledge and decay. <a href="https://softwareconstitution.com/">software/constitution™</a> made those rules machine-checkable at CI time. This project goes further: the constitution is <strong>built from evidence</strong>, <strong>maintained by detection</strong>, and <strong>queried by symptom</strong> — across the full software lifecycle.</p>
-    </section>
-
-    <section>
-      <h2>The three self-management lanes</h2>
-      <div class="lanes">
-        <div class="lane lane-derived">
-          <h3>🟢 Derived</h3>
-          <p>The registry is a build artifact. Regenerated from rule files on every push. Humans never hand-edit it.</p>
-        </div>
-        <div class="lane lane-detect">
-          <h3>🟡 Detect & Advise</h3>
-          <p>Health checks find size-law crossings, drift, orphans. The agent advises you with evidence — never a drafted diff.</p>
-        </div>
-        <div class="lane lane-human">
-          <h3>🔴 Human-Decided</h3>
-          <p>Rule changes, splits, structural evolution. You ask; the skill drafts with alternatives; you ratify.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>How it differs from software/constitution™</h2>
-      <table>
-        <tr><th></th><th>software/constitution™</th><th>constitution</th></tr>
-        <tr><td><strong>Focus</strong></td><td>CI-time enforcement</td><td>Full lifecycle: build → maintain → query</td></tr>
-        <tr><td><strong>Creation</strong></td><td>Copy templates, author by hand</td><td>Agent-driven: interview or mine code+docs</td></tr>
-        <tr><td><strong>Knowledge</strong></td><td>Not addressed</td><td>Domain packs, progressive loading, STE style</td></tr>
-        <tr><td><strong>Rules</strong></td><td>Written by humans</td><td>Evidence-cited + counterexample-named</td></tr>
-        <tr><td><strong>Registry</strong></td><td>Hand-maintained JSON</td><td>Derived: drift = CI failure</td></tr>
-        <tr><td><strong>Search</strong></td><td>Not addressed</td><td>Symptom → rule → root cause in one query</td></tr>
-        <tr><td><strong>Runbooks</strong></td><td>Not addressed</td><td>Versioned, scar-born, post-incident checklist</td></tr>
-        <tr><td><strong>Monorepo</strong></td><td>Not addressed</td><td>Module sub-constitutions</td></tr>
-      </table>
-    </section>
-
-    <section>
-      <h2>Quick start</h2>
-      <pre><code># Linux/Mac
-git clone https://github.com/phanijapps/constitution
-cd constitution
-./install.sh
-
-# Windows PowerShell
-.\install.ps1</code></pre>
-      <p>The installer asks you to pick your coding agent and copies the skill to the right place.</p>
-    </section>
-
-    <section>
-      <h2>What you get</h2>
-      <div class="grid">
-        <div class="card"><h3>📋 scaffold</h3><p>Greenfield (interview) or brownfield (mine code+docs) — builds the 8-pack structure with charters, knowledge, and DRAFT rules.</p></div>
-        <div class="card"><h3>🔍 query</h3><p>Search rules, knowledge, and runbooks by symptom or concept. Returns progressive-loading-sized results with prerequisites.</p></div>
-        <div class="card"><h3>🩺 health</h3><p>Detects size-law crossings, orphan fragments, uncatalogued rules, undeclared modules. Advisory findings with evidence.</p></div>
-        <div class="card"><h3>⚙️ derive</h3><p>Regenerates the catalogue from rule files. The registry is a build artifact — never hand-edited.</p></div>
-        <div class="card"><h3>📖 runbooks</h3><p>Versioned procedural documents for incident response. Scar-born, post-incident checklist enforced.</p></div>
-        <div class="card"><h3>🏗️ modules</h3><p>Monorepo sub-constitutions per service or independently-published package.</p></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Spec</h2>
-      <p>Read the <a href="https://github.com/phanijapps/constitution/blob/main/SPEC.md">full specification</a> or the <a href="https://github.com/phanijapps/constitution/blob/main/SPEC.md">canonical version on GitHub</a>.</p>
-    </section>
-
-    <footer>
-      <p>Inspired by <a href="https://softwareconstitution.com/">software/constitution™</a> (Apache-2.0). This project extends it beyond CI-time enforcement.</p>
-      <p>License: Apache-2.0 · <a href="https://github.com/phanijapps/constitution">GitHub</a></p>
-    </footer>
+<header class="site-header">
+  <div class="wrap nav">
+    <span class="brand"><a href="/constitution/">constitution<span class="brand-slash">/</span></a></span>
+    <nav class="nav-links" aria-label="Site">
+      <a href="https://github.com/phanijapps/constitution/blob/main/SPEC.md">Spec</a>
+      <a href="https://github.com/phanijapps/constitution">GitHub</a>
+    </nav>
+    <span class="spacer"></span>
   </div>
+</header>
+<main class="wrap">
+
+<section class="hero">
+  <p class="kicker">constitution · self-managing software law · inspired by software/constitution™</p>
+  <h1>Constitutions your agents<br />can build and maintain.</h1>
+  <p class="lead">A software constitution is your codebase's law — rules with evidence, counterexamples, and gates. This project provides the skill that builds it from code or interviews, the tooling that keeps it honest, and the query that finds root cause from symptoms.</p>
+  <p>
+    <a class="btn btn-primary" href="https://github.com/phanijapps/constitution">Get started</a>
+    <a class="btn btn-ghost" href="https://github.com/phanijapps/constitution/blob/main/SPEC.md">Read the spec</a>
+  </p>
+</section>
+
+<h2 id="why">Why this exists</h2>
+<p>Projects accumulate rules that live in tribal knowledge and decay. <a href="https://softwareconstitution.com/">software/constitution™</a> made them machine-checkable at CI time. This goes further: the constitution is <strong>built from evidence</strong> by an agent that interviews you or mines your code, <strong>maintained by detection</strong> that surfaces findings before they become incidents, and <strong>queried by symptom</strong> so root cause takes one search instead of a codebase read.</p>
+
+<h2 id="the-three-lanes">The three self-management lanes</h2>
+<div class="lanes">
+  <div class="lane">
+    <h3>Derived <span class="mark-ok">auto</span></h3>
+    <p>The rule catalogue is a build artifact — regenerated from rule files on every push. Humans never hand-edit it.</p>
+  </div>
+  <div class="lane lane-detect">
+    <h3>Detect &amp; Advise <span class="mono small" style="color:var(--accent)">surface</span></h3>
+    <p>Health checks find size-law crossings, drift, orphans. The agent advises you with evidence — never a drafted diff.</p>
+  </div>
+  <div class="lane lane-human">
+    <h3>Human-Decided <span class="mark-block">ratify</span></h3>
+    <p>Rule changes, splits, structural evolution. You ask; the skill drafts with alternatives; you ratify.</p>
+  </div>
+</div>
+
+<h2 id="how-it-differs">How it differs from software/constitution™</h2>
+<table>
+  <thead>
+    <tr><th></th><th>software/constitution™</th><th>constitution</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Focus</strong></td><td>CI-time enforcement</td><td>Full lifecycle: build → maintain → query</td></tr>
+    <tr><td><strong>Creation</strong></td><td>Copy templates, author by hand</td><td>Agent-driven: interview or mine code+docs</td></tr>
+    <tr><td><strong>Knowledge</strong></td><td>Not addressed</td><td>Domain packs, progressive loading, STE style</td></tr>
+    <tr><td><strong>Rules</strong></td><td>Written by humans</td><td>Evidence-cited + counterexample-named</td></tr>
+    <tr><td><strong>Rule catalogue</strong></td><td>Hand-maintained JSON</td><td>Derived: drift = CI failure</td></tr>
+    <tr><td><strong>Search</strong></td><td>Not addressed</td><td>Symptom → rule → root cause in one query</td></tr>
+    <tr><td><strong>Runbooks</strong></td><td>Not addressed</td><td>Versioned, scar-born, post-incident checklist</td></tr>
+    <tr><td><strong>Monorepo</strong></td><td>Not addressed</td><td>Module sub-constitutions</td></tr>
+  </tbody>
+</table>
+
+<h2 id="start-here">Start here</h2>
+<div class="grid g3">
+  <div class="card">
+    <p class="kicker">Install</p>
+    <h3><a href="https://github.com/phanijapps/constitution#quick-start">Quick start</a></h3>
+    <p>One script, pick your agent (Claude Code, Codex, Cursor, Copilot), the skill installs to the right place.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">Read</p>
+    <h3><a href="https://github.com/phanijapps/constitution/blob/main/SPEC.md">The spec</a></h3>
+    <p>Artifacts, domain packs, rule format, knowledge size law, runbooks, three lanes, module sub-constitutions, query.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">Build</p>
+    <h3><a href="https://github.com/phanijapps/constitution/blob/main/skill/SKILL.md">The skill</a></h3>
+    <p>Greenfield (interview) or brownfield (mine code+docs) — scaffold, ground with evidence, query by symptom, maintain by detection.</p>
+  </div>
+</div>
+
+<h2 id="what-you-get">What you get</h2>
+<div class="grid g2">
+  <div class="card">
+    <p class="kicker">scaffold</p>
+    <h3>Build a constitution</h3>
+    <pre><code># greenfield: interview
+python3 scripts/scaffold.py --repo . --mode greenfield
+
+# brownfield: mine code+docs
+python3 scripts/scaffold.py --repo . --mode brownfield --docs docs/ README.md
+
+# monorepo module
+python3 scripts/scaffold.py --repo . --mode brownfield --module payments</code></pre>
+  </div>
+  <div class="card">
+    <p class="kicker">query</p>
+    <h3>Find the root cause</h3>
+    <pre><code># by symptom
+python3 scripts/query.py . "storage isolation project"
+
+# by concept
+python3 scripts/query.py . "recall degraded lane" --type knowledge
+
+# by rule ID
+python3 scripts/query.py . "PLT-002" --type rules</code></pre>
+  </div>
+  <div class="card">
+    <p class="kicker">health</p>
+    <h3>Detect before it breaks</h3>
+    <pre><code># size law + orphans + drift + uncatalogued
+python3 scripts/health.py .
+
+# advisory in CI, blocking on --strict
+# catalogue drift = CI failure (derived gate)</code></pre>
+  </div>
+  <div class="card">
+    <p class="kicker">derive</p>
+    <h3>Registry as build artifact</h3>
+    <pre><code># regenerate catalogue from rule files
+python3 scripts/derive_catalogue.py . --write
+
+# prove committed = derived (CI gate)
+python3 scripts/derive_catalogue.py .</code></pre>
+  </div>
+</div>
+
+<div class="plate plate-ok">
+  <span class="plate-title">Grounding</span>
+  <p>This project is the reference implementation of its own spec — the skill builds constitutions, the constitution governs the skill's own repository. The <a href="https://github.com/phanijapps/engram">engram project</a> is the original dogfood implementation.</p>
+</div>
+
+<div class="plate plate-warn">
+  <span class="plate-title">Honest limitations</span>
+  <p>Structural-change authorization (L3 ratification) is designed but not yet implemented — it is an honour-system contract until the verification gate ships. The upstream software/constitution™ six-rule-class conformance is NOT implied by this spec.</p>
+</div>
+
+<p class="grounded"><strong>Grounded in:</strong> <code class="inline">SPEC.md</code> · <code class="inline">skill/SKILL.md</code> · <code class="inline">skill/scripts/</code> (6 portable scripts) · the <a href="https://github.com/phanijapps/engram">engram repository</a> (original implementation).</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>constitution · self-managing software law · inspired by <a href="https://softwareconstitution.com/">software/constitution™</a> (Apache-2.0)</p>
+    <p class="mono small">site sources: <a href="https://github.com/phanijapps/constitution/tree/main/docs">github.com/phanijapps/constitution/docs</a></p>
+  </div>
+</footer>
 </body>
 </html>

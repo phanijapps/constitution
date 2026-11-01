@@ -1,0 +1,23 @@
+{
+  "name": "constitution",
+  "displayName": "Self-Managing Software Constitution",
+  "version": "1.0.0",
+  "description": "Build, ground, maintain, and query a software constitution — evidence-grounded rules, knowledge packs, runbooks, derived registry, health detection, module sub-constitutions.",
+  "author": "phanijapps",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/phanijapps/constitution",
+  "homepage": "https://phanijapps.github.io/constitution/",
+  "skills": [{
+    "name": "constitution",
+    "path": "./skill",
+    "triggers": ["build a constitution", "constitution health", "split a pack", "add a module", "ground the packs"]
+  }],
+  "scripts": {
+    "scaffold": "skill/scripts/scaffold.py",
+    "derive": "skill/scripts/derive_catalogue.py",
+    "health": "skill/scripts/health.py",
+    "query": "skill/scripts/query.py",
+    "validate": "skill/scripts/validate.py",
+    "lint": "skill/scripts/lint.py"
+  }
+}
