@@ -66,13 +66,13 @@ if [ -z "$AGENT_CHOICE" ]; then
   echo "  ║   constitution — installer ($MODE)        ║"
   echo "  ╚══════════════════════════════════════════╝"
   echo ""
-  echo "  Select your coding agent:"
+  echo "  Select your coding agent (installed into: $PWD)"
   echo ""
-  echo "  1) Claude Code     (~/.claude/skills/)"
-  echo "  2) Codex           (~/.agents/skills/)"
-  echo "  3) Cursor          (~/.cursor/skills/)"
-  echo "  4) Kiro IDE/CLI     (~/.kiro/skills/)"
-  echo "  5) GitHub Copilot  (.github/skills/ in current repo)"
+  echo "  1) Claude Code     (.claude/skills/)"
+  echo "  2) Codex           (.agents/skills/)"
+  echo "  3) Cursor          (.cursor/skills/)"
+  echo "  4) Kiro IDE/CLI     (.kiro/skills/)"
+  echo "  5) GitHub Copilot  (.github/skills/)"
   echo "  6) All (Claude + Codex + Cursor + Kiro)"
   echo ""
   # Try /dev/tty first, then stdin, then fail cleanly
@@ -105,19 +105,16 @@ install_to() {
 }
 
 case "$choice" in
-  1) install_to "$HOME/.claude/skills" ;;
-  2) install_to "$HOME/.agents/skills" ;;
-  3) install_to "$HOME/.cursor/skills" ;;
-  4) install_to "$HOME/.kiro/skills" ;;
-  5)
-    read -rp "  Path to repo root (default: current dir): " repo < /dev/tty 2>/dev/null || repo="$(pwd)"
-    install_to "$repo/.github/skills"
-    ;;
+  1) install_to ".claude/skills" ;;
+  2) install_to ".agents/skills" ;;
+  3) install_to ".cursor/skills" ;;
+  4) install_to ".kiro/skills" ;;
+  5) install_to ".github/skills" ;;
   6)
-    install_to "$HOME/.claude/skills"
-    install_to "$HOME/.agents/skills"
-    install_to "$HOME/.cursor/skills"
-    install_to "$HOME/.kiro/skills"
+    install_to ".claude/skills"
+    install_to ".agents/skills"
+    install_to ".cursor/skills"
+    install_to ".kiro/skills"
     ;;
   *) echo "  invalid choice: $choice" >&2; exit 1 ;;
 esac
@@ -125,11 +122,11 @@ esac
 echo ""
 echo "  Done. Verify with:"
 case "$choice" in
-  1) echo "    python3 ~/.claude/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
-  2) echo "    python3 ~/.agents/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
-  3) echo "    python3 ~/.cursor/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
-  4) echo "    python3 ~/.kiro/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  1) echo "    python3 .claude/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  2) echo "    python3 .agents/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  3) echo "    python3 .cursor/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  4) echo "    python3 .kiro/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
   5) echo "    python3 .github/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
-  6) echo "    python3 ~/.claude/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
+  6) echo "    python3 .claude/skills/$SKILL_NAME/scripts/scaffold.py --help" ;;
 esac
 echo ""

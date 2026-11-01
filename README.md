@@ -58,14 +58,14 @@ cd constitution
 
 | Agent | Command | Install path |
 |---|---|---|
-| Claude Code | `claude plugin install phanijapps/constitution` | `~/.claude/skills/constitution` |
-| Codex | `curl ... install.sh \| bash` (option 2) | `~/.agents/skills/constitution` |
-| Cursor | `curl ... install.sh \| bash` (option 3) | `~/.cursor/skills/constitution` |
-| Kiro | `curl ... install.sh \| bash` (option 4) | `~/.kiro/skills/constitution` |
-| GitHub Copilot | `curl ... install.sh \| bash` (option 4) | `.github/skills/constitution` |
-| Generic | `curl ... install.sh \| bash` (option 5) | `~/.agents/skills/constitution` |
+| Claude Code | `curl ... install.sh \| bash` (option 1) | `.claude/skills/constitution` |
+| Codex | `curl ... install.sh \| bash` (option 2) | `.agents/skills/constitution` |
+| Cursor | `curl ... install.sh \| bash` (option 3) | `.cursor/skills/constitution` |
+| Kiro | `curl ... install.sh \| bash` (option 4) | `.kiro/skills/constitution` |
+| GitHub Copilot | `curl ... install.sh \| bash` (option 5) | `.github/skills/constitution` |
+| Generic | `curl ... install.sh \| bash` (any option) | project-level `.*/skills/` |
 
-A CI workflow template is included at `.github/workflows/constitution.yml`.
+All installs are project-level (relative to your current directory). A CI workflow template is included at `.github/workflows/constitution.yml`.
 
 ## What you get
 
