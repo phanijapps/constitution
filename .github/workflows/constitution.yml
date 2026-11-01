@@ -12,6 +12,7 @@ jobs:
       - name: Validate portable scripts
         run: |
           python3 skill/scripts/scaffold.py --repo /tmp/const-check --mode greenfield
+          python3 skill/scripts/derive_catalogue.py /tmp/const-check --write
           python3 skill/scripts/derive_catalogue.py /tmp/const-check
           python3 skill/scripts/health.py /tmp/const-check
           python3 skill/scripts/validate.py /tmp/const-check
