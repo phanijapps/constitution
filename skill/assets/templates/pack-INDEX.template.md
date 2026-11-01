@@ -12,8 +12,8 @@ for a different codebase (anti-generic test) and live one-per-file.
 
 | Concern | Lives at |
 |---|---|
-| Knowledge | `knowledge.md` (STE descriptive register) |
-| Rules | `rules/<ID>.md` — one rule per file (STE procedural register) |
+| Knowledge | `knowledge.md` |
+| Rules | `rules/<ID>.md` — one rule per file |
 | Runbooks | `runbooks/` — versioned incident procedures (when they exist) |
 | Deviations | below; global: root DEVIATIONS / DECAY-WINDOWS |
 

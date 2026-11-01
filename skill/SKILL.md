@@ -14,7 +14,7 @@ legislates.
 
 ```
 assets/templates/    root-INDEX · pack-INDEX · knowledge · rule · catalogue
-references/          pack-charters (the 7-pack cut, merge rules) · ste-style
+references/          pack-charters (the 8-pack cut, merge rules)
                      (the mechanical subset) · evidence-mining (brownfield)
                      · interview-guide (greenfield)
 scripts/             scaffold.py (greenfield|brownfield|module skeleton) ·
@@ -36,7 +36,7 @@ No code exists; the constitution encodes INTENT.
    mandatory (what this software is NOT).
 3. Fill knowledge.md from answers (descriptive register, marked
    intent-until-code). Convert outcome/never answers into rules via
-   `assets/templates/rule.template.md` — EARS + BCP 14 + STE + counterexample
+   `assets/templates/rule.template.md` — EARS + BCP 14 + counterexample
    from the owner's own scenario.
 4. Read the whole draft back; owner ratifies; then `scripts/validate.py` +
    `scripts/lint.py` clean + `scripts/derive_catalogue.py <repo> --write`.
@@ -95,7 +95,7 @@ runbook MUST be updated with what actually worked (increment `version`);
 the post-incident checklist in the template enforces this. Runbooks are
 scar-born: they start from the first incident and grow from real experience,
 never from speculation. The constitution skill drafts them in the
-procedural STE register (imperative, ≤20 words per step).
+imperative steps.
 
 ## Searching the constitution
 
