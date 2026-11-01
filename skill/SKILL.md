@@ -1,6 +1,6 @@
 ---
 name: constitution
-description: Build, grow, and MAINTAIN a Software Constitution for ANY repository — greenfield (interview) or brownfield (code + docs + interview) — with 8 domain packs (product/architecture/dev/testing/ci/security/release/platform), knowledge/rules split, one rule per file, controlled-English style (short sentences, active voice), DERIVED catalogue (never hand-edited), health detection, module sub-constitutions for monorepos. Self-maintaining: lane 1 derives, lane 2 detects and advises, lane 3 drafts only when the owner asks. Trigger on "build a constitution", "constitution health", "split a pack", "add a module", "ground the packs", or when adopting any codebase to govern.
+description: Build, grow, and MAINTAIN a Software Constitution for ANY repository — greenfield (interview) or brownfield (code + docs + interview) — with 8 domain packs (product/architecture/dev/testing/ci/security/release/platform), knowledge/rules split, one rule per file, DERIVED catalogue (never hand-edited), health detection, module sub-constitutions for monorepos. Self-maintaining: lane 1 derives, lane 2 detects and advises, lane 3 drafts only when the owner asks. Trigger on "build a constitution", "constitution health", "split a pack", "add a module", "ground the packs", or when adopting any codebase to govern.
 ---
 
 # constitution
@@ -114,8 +114,6 @@ capability; no separate skill is needed.
 4. Enforcement claims are verified against gate code, never assumed.
 5. One rule, one home: `rules/<ID>.md`; ci/ is an enforcement view only.
 6. Nothing is law until the owner ratifies; aspirations are labeled proposals.
-7. Short sentences: rules <= 20 words, knowledge <= 25 words, active voice
-   throughout; lint clean before handoff.
 
 ## Self-host
 
