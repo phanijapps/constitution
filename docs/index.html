@@ -114,6 +114,124 @@ irm https://raw.githubusercontent.com/phanijapps/constitution/main/install.ps1 |
 </div>
 
 
+
+<h2 id="sample-prompts">Sample prompts</h2>
+<p>These prompts work in any coding agent that has the constitution skill installed. They cut across all sub-constitutions — replace the domain terms with your own.</p>
+
+<h3 id="build-a-constitution">Build a constitution</h3>
+<div class="grid g2">
+  <div class="card">
+    <p class="kicker">Greenfield</p>
+    <h3>From an interview</h3>
+    <pre><code>Build a constitution for this project.
+We're building a task management API in Rust
+with a Postgres database. Interview me to
+understand the scope, boundaries, and rules.</code></pre>
+    <p class="small muted">The skill scaffolds 8 packs, asks option-based questions per pack, and drafts rules with counterexamples from your answers.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">Brownfield</p>
+    <h3>From source code</h3>
+    <pre><code>Build a constitution for this repo.
+Mine the codebase, tests, and CI workflows
+to extract the rules this code already lives by.
+Show me every doc-vs-code discrepancy you find.</code></pre>
+    <p class="small muted">The skill mines manifests, seams, tests, and docs — every rule gets evidence and a counterexample. Discrepancies become numbered findings.</p>
+  </div>
+</div>
+
+<h3 id="add-knowledge">Add knowledge</h3>
+<div class="grid g2">
+  <div class="card">
+    <p class="kicker">From source code</p>
+    <h3>Architecture pack</h3>
+    <pre><code>Add to the architecture pack's knowledge:
+how does our dependency injection container
+work? Trace the resolution chain from the
+entry point through each provider registration.</code></pre>
+    <p class="small muted">The agent reads the code, writes a knowledge fragment in STE descriptive style, and adds it to the pack with evidence citations.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">From docs</p>
+    <h3>Product pack</h3>
+    <pre><code>Our README describes three user personas
+but the product pack doesn't cover them.
+Add this to the product knowledge with
+citations from the README.</code></pre>
+    <p class="small muted">The agent verifies each doc claim against code, absorbs what's confirmed, and records discrepancies as findings.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">From discovery</p>
+    <h3>Platform pack</h3>
+    <pre><code>I just learned our app deploys to three
+environments: staging, production, and DR.
+Add this to the platform pack with the
+env-var differences and database topology.</code></pre>
+    <p class="small muted">The agent drafts a platform rule (each env MUST register in the environments manifest) with a counterexample, plus knowledge describing the topology.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">From incident</p>
+    <h3>Runbook</h3>
+    <pre><code>We just had an incident where recall
+returned empty because the vector index
+was corrupted. Add a runbook for this
+to the testing pack.</code></pre>
+    <p class="small muted">The agent drafts a versioned runbook with trigger, blast radius, steps, and a post-incident checklist. A new rule is proposed from the scar.</p>
+  </div>
+</div>
+
+<h3 id="search-the-constitution">Search the constitution</h3>
+<div class="grid g2">
+  <div class="card">
+    <p class="kicker">By symptom</p>
+    <h3>Root cause lookup</h3>
+    <pre><code>Users report recall returns empty
+even though memories exist.
+Search the constitution for rules
+about degraded retrieval lanes.</code></pre>
+    <pre><code># the agent runs:
+python3 scripts/query.py . \
+  "recall empty degraded lane" \
+  --type rules</code></pre>
+    <p class="small muted">Returns PRD-105 (the rule) + the counterexample that matches this exact incident + evidence pointing to the code.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">By concept</p>
+    <h3>Knowledge lookup</h3>
+    <pre><code>How does our build pipeline work?
+Show me the dev pack's knowledge
+about artifact generation.</code></pre>
+    <pre><code># the agent runs:
+python3 scripts/query.py . \
+  "build pipeline artifact generation" \
+  --type knowledge</code></pre>
+    <p class="small muted">Returns the knowledge fragment with prerequisites, sized for progressive loading (~200 tokens, not the full pack).</p>
+  </div>
+  <div class="card">
+    <p class="kicker">Health check</p>
+    <h3>Detect issues</h3>
+    <pre><code>Check the constitution's health.
+Are any packs over the size law?
+Any uncatalogued rules or orphans?</code></pre>
+    <pre><code># the agent runs:
+python3 scripts/health.py .</code></pre>
+    <p class="small muted">Returns findings with evidence: size-law crossings, orphan fragments, uncatalogued rules, undeclared modules — advisory, never a drafted diff.</p>
+  </div>
+  <div class="card">
+    <p class="kicker">Cross-pack</p>
+    <h3>Full context</h3>
+    <pre><code>I'm changing the storage layer.
+Show me every rule and knowledge
+fragment that touches storage
+across all packs.</code></pre>
+    <pre><code># the agent runs:
+python3 scripts/query.py . \
+  "storage database persistence" \
+  --type all</code></pre>
+    <p class="small muted">Cuts across platform (storage topology), architecture (repository patterns), dev (migration rules), security (access boundaries) — one query, all packs.</p>
+  </div>
+</div>
+
 <h2 id="what-you-get">What you get</h2>
 <div class="grid g2">
   <div class="card">
@@ -184,4 +302,4 @@ python3 scripts/derive_catalogue.py .</code></pre>
 <!-- trigger 1793565180 -->
 <!-- v 1793565430 -->
 
-<!-- kiro $(date +%s) -->
+<!-- kiro $(date +%s) --><!-- v 1793566093 -->
