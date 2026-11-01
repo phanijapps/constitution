@@ -75,17 +75,16 @@
     <p class="kicker">One-liner</p>
     <h3>Remote install</h3>
     <pre><code># Linux / macOS
-curl -fsSL https://raw.githubusercontent.com/phanijapps/constitution/main/remote-install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/phanijapps/constitution/main/install.sh | bash
 
 # Windows PowerShell
-irm https://raw.githubusercontent.com/phanijapps/constitution/main/remote-install.ps1 | iex</code></pre>
+irm https://raw.githubusercontent.com/phanijapps/constitution/main/install.ps1 | iex</code></pre>
   </div>
   <div class="card">
-    <p class="kicker">In your workspace</p>
-    <h3>Clone &amp; run</h3>
-    <pre><code>git clone https://github.com/phanijapps/constitution
-cd constitution
-./install.sh</code></pre>
+    <p class="kicker">Plugin</p>
+    <h3>Claude Code</h3>
+    <pre><code>claude plugin install phanijapps/constitution</code></pre>
+    <p>Or use the one-liner above and select your agent.</p>
   </div>
 </div>
 
@@ -93,7 +92,7 @@ cd constitution
 <table>
   <thead><tr><th>Agent</th><th>Config</th><th>Install path</th></tr></thead>
   <tbody>
-    <tr><td>Claude Code</td><td><code>.claude-plugin/marketplace.json</code></td><td><code>~/.claude/skills/constitution</code></td></tr>
+    <tr><td>Claude Code</td><td><code>claude plugin install phanijapps/constitution</code></td><td><code>~/.claude/skills/constitution</code></td></tr>
     <tr><td>Codex</td><td><code>.codex/skill.json</code></td><td><code>~/.agents/skills/constitution</code></td></tr>
     <tr><td>Cursor</td><td><code>.cursor/skill.json</code></td><td><code>~/.cursor/skills/constitution</code></td></tr>
     <tr><td>GitHub Copilot</td><td>installer option 4</td><td><code>.github/skills/constitution</code></td></tr>
