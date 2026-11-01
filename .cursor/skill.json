@@ -1,0 +1,13 @@
+{
+  "name": "constitution",
+  "displayName": "Self-Managing Software Constitution",
+  "version": "1.0.0",
+  "description": "Build, ground, maintain, and query a software constitution — evidence-grounded rules, knowledge packs, runbooks, derived registry, health detection, module sub-constitutions.",
+  "author": "phanijapps",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/phanijapps/constitution",
+  "skills": [{
+    "name": "constitution",
+    "path": "./skill"
+  }]
+}

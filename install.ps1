@@ -20,7 +20,7 @@ Write-Host "  1) Claude Code     (~/.claude/skills/)"
 Write-Host "  2) Codex           (~/.agents/skills/)"
 Write-Host "  3) Cursor          (~/.cursor/skills/)"
 Write-Host "  4) GitHub Copilot  (.github/skills/ in current repo)"
-Write-Host "  5) Generic         (~/.local/share/constitution/)"
+Write-Host "  5) Generic         (~/.agents/skills/ - shared with Codex)"
 Write-Host "  6) All (Claude + Codex + Cursor)"
 Write-Host ""
 $choice = Read-Host "  Enter number [1-6]"
@@ -43,7 +43,7 @@ switch ($choice) {
         if ([string]::IsNullOrWhiteSpace($repo)) { $repo = (Get-Location).Path }
         Install-To (Join-Path $repo ".github\agents")
     }
-    "5" { Install-To "$env:USERPROFILE\.local\share\constitution" }
+    "5" { Install-To "$env:USERPROFILE\.agents\skills" }
     "6" {
         Install-To "$env:USERPROFILE\.claude\skills"
         Install-To "$env:USERPROFILE\.agents\skills"
