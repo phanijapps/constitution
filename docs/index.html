@@ -68,12 +68,39 @@
 </table>
 
 <h2 id="start-here">Start here</h2>
-<div class="grid g3">
+
+<h3 id="install">Install</h3>
+<div class="grid g2">
   <div class="card">
-    <p class="kicker">Install</p>
-    <h3><a href="https://github.com/phanijapps/constitution#quick-start">Quick start</a></h3>
-    <p>One script, pick your agent (Claude Code, Codex, Cursor, Copilot), the skill installs to the right place.</p>
+    <p class="kicker">One-liner</p>
+    <h3>Remote install</h3>
+    <pre><code># Linux / macOS
+curl -fsSL https://raw.githubusercontent.com/phanijapps/constitution/main/remote-install.sh | bash
+
+# Windows PowerShell
+irm https://raw.githubusercontent.com/phanijapps/constitution/main/remote-install.ps1 | iex</code></pre>
   </div>
+  <div class="card">
+    <p class="kicker">In your workspace</p>
+    <h3>Clone &amp; run</h3>
+    <pre><code>git clone https://github.com/phanijapps/constitution
+cd constitution
+./install.sh</code></pre>
+  </div>
+</div>
+
+<h3 id="marketplace">Marketplace</h3>
+<table>
+  <thead><tr><th>Agent</th><th>Config</th><th>Install path</th></tr></thead>
+  <tbody>
+    <tr><td>Claude Code</td><td><code>.claude-plugin/marketplace.json</code></td><td><code>~/.claude/skills/constitution</code></td></tr>
+    <tr><td>Codex</td><td><code>.codex/skill.json</code></td><td><code>~/.agents/skills/constitution</code></td></tr>
+    <tr><td>Cursor</td><td><code>.cursor/skill.json</code></td><td><code>~/.cursor/skills/constitution</code></td></tr>
+    <tr><td>GitHub Copilot</td><td>installer option 4</td><td><code>.github/skills/constitution</code></td></tr>
+  </tbody>
+</table>
+
+<div class="grid g3">
   <div class="card">
     <p class="kicker">Read</p>
     <h3><a href="https://github.com/phanijapps/constitution/blob/main/SPEC.md">The spec</a></h3>
@@ -85,6 +112,7 @@
     <p>Greenfield (interview) or brownfield (mine code+docs) — scaffold, ground with evidence, query by symptom, maintain by detection.</p>
   </div>
 </div>
+
 
 <h2 id="what-you-get">What you get</h2>
 <div class="grid g2">

@@ -1,5 +1,9 @@
 name: Constitution
 on: [push, pull_request]
+# NOTE: this workflow checks the constitution project's own skill.
+# In YOUR repo, update the paths to wherever you installed the skill
+# (e.g. .github/skills/constitution/scripts/ for Copilot, or
+#  ~/.agents/skills/constitution/scripts/ for Codex).
 jobs:
   gates:
     runs-on: ubuntu-latest
@@ -8,7 +12,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - name: Derive catalogue (blocking)
-        run: python3 .github/skills/constitution/scripts/derive_catalogue.py .
+        run: python3 skill/scripts/derive_catalogue.py .
       - name: Constitution health (advisory)
-        run: python3 .github/skills/constitution/scripts/health.py .
+        run: python3 skill/scripts/health.py .
         continue-on-error: true
