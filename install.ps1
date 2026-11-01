@@ -19,7 +19,7 @@ Write-Host ""
 Write-Host "  1) Claude Code     (~/.claude/skills/)"
 Write-Host "  2) Codex           (~/.agents/skills/)"
 Write-Host "  3) Cursor          (~/.cursor/skills/)"
-Write-Host "  4) GitHub Copilot  (.github/agents/ in current repo)"
+Write-Host "  4) GitHub Copilot  (.github/skills/ in current repo)"
 Write-Host "  5) Generic         (~/.local/share/constitution/)"
 Write-Host "  6) All (Claude + Codex + Cursor)"
 Write-Host ""
@@ -28,7 +28,9 @@ Write-Host ""
 
 function Install-To($dest) {
     New-Item -ItemType Directory -Force -Path $dest | Out-Null
-    Copy-Item -Recurse -Force $SkillDir (Join-Path $dest $SkillName)
+    $target = Join-Path $dest $SkillName
+    if (Test-Path $target) { Remove-Item -Recurse -Force $target }
+    Copy-Item -Recurse $SkillDir $target
     Write-Host "  OK installed to $dest\$SkillName" -ForegroundColor Green
 }
 

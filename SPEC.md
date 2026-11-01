@@ -27,7 +27,7 @@ query, and module sub-constitutions for monorepos.
 |---|---|---|
 | 1.1 | `docs/constitution/00-INDEX.md` | Master index: project one-pager, universal rules, pack registry, amendment record |
 | 1.2 | `docs/constitution/<pack>/00-INDEX.md` | Pack charter, rule table, deviations (one per domain pack) |
-| 1.3 | `docs/constitution/<pack>/knowledge.md` or `knowledge/` | Domain knowledge (descriptive STE register); split into fragments + manifest when >2,400 tokens |
+| 1.3 | `docs/constitution/<pack>/knowledge.md` or `knowledge/` | Domain knowledge (descriptive STE register); split required when >3,000 tokens (see §4.1) |
 | 1.4 | `docs/constitution/<pack>/rules/<RULE-ID>.md` | One rule per file: statement (procedural STE), refs, evidence, counterexample |
 | 1.5 | `docs/constitution/<pack>/runbooks/<RB-ID>.md` | Versioned procedural documents (optional per pack; mandatory after first incident in the domain) |
 | 1.6 | `docs/constitution/registry/constitution-catalogue.json` | **Derived** catalogue: rule-ID → pack → path → enforcement (never hand-edited) |
@@ -145,10 +145,11 @@ both actionable.
 
 ## 10. Relationship to software/constitution™
 
-This specification extends the software/constitution™ standard. Projects conforming
-to this spec also satisfy the six-rule-class requirement of the upstream standard.
-The additional requirements (knowledge packs, runbooks, derived registry,
-self-management lanes, module sub-constitutions, query) are additive.
+This specification is inspired by the software/constitution™ standard but is a
+separate spec. Upstream conformance is NOT implied — upstream requires six rule
+classes (zero competing systems, repo↔prod drift, production stubs, canonical
+events, zero deviation, no orphans) that this spec does not enforce. Projects
+may satisfy both, but must map the six classes separately.
 
 ---
 

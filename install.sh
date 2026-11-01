@@ -20,7 +20,7 @@ echo ""
 echo "  1) Claude Code     (~/.claude/skills/)"
 echo "  2) Codex           (~/.agents/skills/)"
 echo "  3) Cursor          (~/.cursor/skills/)"
-echo "  4) GitHub Copilot  (.github/agents/ in current repo)"
+echo "  4) GitHub Copilot  (.github/skills/ in current repo)"
 echo "  5) Generic         (~/.local/share/constitution/)"
 echo "  6) All (Claude + Codex + Cursor)"
 echo ""
@@ -30,6 +30,7 @@ echo ""
 install_to() {
   local dest="$1"
   mkdir -p "$dest"
+  rm -rf "$dest/$SKILL_NAME"
   cp -r "$SKILL_DIR" "$dest/$SKILL_NAME"
   echo "  ✓ installed to $dest/$SKILL_NAME"
 }
@@ -41,7 +42,7 @@ case "$choice" in
   4)
     read -rp "  Path to repo root (default: current dir): " repo
     repo="${repo:-$(pwd)}"
-    install_to "$repo/.github/agents"
+    install_to "$repo/.github/skills"
     ;;
   5) install_to "$HOME/.local/share/constitution" ;;
   6)
@@ -54,5 +55,12 @@ esac
 
 echo ""
 echo "  Done. Verify with:"
-echo "    python3 ~/.claude/skills/constitution/scripts/scaffold.py --help"
+case "$choice" in
+  1) echo "    python3 ~/.claude/skills/constitution/scripts/scaffold.py --help" ;;
+  2) echo "    python3 ~/.agents/skills/constitution/scripts/scaffold.py --help" ;;
+  3) echo "    python3 ~/.cursor/skills/constitution/scripts/scaffold.py --help" ;;
+  4) echo "    python3 .github/skills/constitution/scripts/scaffold.py --help" ;;
+  5) echo "    python3 ~/.local/share/constitution/constitution/scripts/scaffold.py --help" ;;
+  6) echo "    python3 ~/.claude/skills/constitution/scripts/scaffold.py --help" ;;
+esac
 echo ""

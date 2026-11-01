@@ -32,7 +32,7 @@ gate output), what to try next.}}
 - [ ] Root cause identified and cited as `file:line` or config path
 - [ ] The violated rule's counterexample matches this incident (or a new rule is needed)
 - [ ] Runbook updated with what actually worked (increment `version`)
-- [ ] If a new rule is needed: invoke engram-constitution to draft it (scar-born rule)
+- [ ] If a new rule is needed: invoke constitution to draft it (scar-born rule)
 
 ## Change log
 

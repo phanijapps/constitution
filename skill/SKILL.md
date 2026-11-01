@@ -1,9 +1,9 @@
 ---
-name: engram-constitution
+name: constitution
 description: Build, grow, and MAINTAIN a Software Constitution for ANY repository — greenfield (interview) or brownfield (code + docs + interview) — with 8 domain packs (product/architecture/dev/testing/ci/security/release/platform), knowledge/rules split, one rule per file, ASD-STE100 style, DERIVED catalogue (never hand-edited), health detection, module sub-constitutions for monorepos. Self-maintaining: lane 1 derives, lane 2 detects and advises, lane 3 drafts only when the owner asks. Trigger on "build a constitution", "constitution health", "split a pack", "add a module", "ground the packs", or when adopting any codebase to govern.
 ---
 
-# engram-constitution
+# constitution
 
 Turn a repository's actual law — or a greenfield owner's intent — into a
 federated constitution: knowledge and rules in ONE tree, one rule per file,
@@ -94,7 +94,7 @@ revision it was last tested on), and a change log. After every incident the
 runbook MUST be updated with what actually worked (increment `version`);
 the post-incident checklist in the template enforces this. Runbooks are
 scar-born: they start from the first incident and grow from real experience,
-never from speculation. The engram-constitution skill drafts them in the
+never from speculation. The constitution skill drafts them in the
 procedural STE register (imperative, ≤20 words per step).
 
 ## Searching the constitution
@@ -119,5 +119,6 @@ capability; no separate skill is needed.
 
 ## Self-host
 
-This skill built engram's own constitution (docs/constitution/) — the
-dogfood path is the reference implementation.
+This skill builds constitutions for any repository. The reference
+implementation is the engram project: https://github.com/phanijapps/engram
+(docs/constitution/).

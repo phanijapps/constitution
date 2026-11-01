@@ -19,7 +19,7 @@ any repository — plus the tooling to keep them honest.
 | **Creation** | Copy templates, author by hand | **Skill-driven**: interview (greenfield) or mine code+docs (brownfield) |
 | **Knowledge** | Not addressed | **Knowledge packs**: domain-organized, progressively loaded, STE-style |
 | **Rules** | Written by humans | **Evidence-grounded**: every rule carries `file:line` evidence, a counterexample, and a gate |
-| **Registry** | Hand-maintained JSON | **Derived**: auto-regenerated from rule files; drift = CI failure |
+| **Rule catalogue** | Hand-maintained implementation registry | **Derived rule catalogue**: auto-regenerated from rule files; drift = CI failure |
 | **Maintenance** | Manual | **Self-managing**: health detects size-law violations, orphans, drift; the system advises, you decide |
 | **Search** | Not addressed | **query.py**: find rules/knowledge/runbooks by symptom or concept |
 | **Runbooks** | Not addressed | **Versioned procedural knowledge**: scar-born, post-incident checklist enforced |
@@ -37,7 +37,7 @@ any repository — plus the tooling to keep them honest.
 .\install.ps1
 ```
 
-The installer asks you to select your coding agent (Claude Code, Codex, Cursor, etc.)
+The installer asks you to select your coding agent (a CI workflow template is included at `.github/workflows/constitution.yml` — copy it to your repo and adjust the skill path) (Claude Code, Codex, Cursor, etc.)
 and copies the skill to the right location.
 
 ## What you get

@@ -1,0 +1,14 @@
+name: Constitution
+on: [push, pull_request]
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Derive catalogue (blocking)
+        run: python3 .github/skills/constitution/scripts/derive_catalogue.py .
+      - name: Constitution health (advisory)
+        run: python3 .github/skills/constitution/scripts/health.py .
+        continue-on-error: true

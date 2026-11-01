@@ -1,0 +1,27 @@
+{
+  "owner": {
+    "name": "phanijapps"
+  },
+  "plugins": [
+    {
+      "name": "constitution",
+      "displayName": "Self-Managing Software Constitution",
+      "description": "Build, ground, maintain, and query a software constitution for any repository \u2014 evidence-grounded rules, knowledge packs, runbooks, derived registry, health detection, module sub-constitutions.",
+      "version": "1.0.0",
+      "author": {
+        "name": "phanijapps"
+      },
+      "license": "Apache-2.0",
+      "repository": "https://github.com/phanijapps/constitution",
+      "homepage": "https://phanijapps.github.io/constitution/",
+      "keywords": [
+        "constitution",
+        "governance",
+        "spec-driven",
+        "rules",
+        "knowledge"
+      ],
+      "source": "./skill"
+    }
+  ]
+}

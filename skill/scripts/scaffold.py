@@ -52,7 +52,7 @@ def main() -> int:
         if not (repo / "docs/constitution/00-INDEX.md").is_file():
             print("root constitution not found — scaffold root first", file=sys.stderr); return 2
     elif C.exists() and (C / "00-INDEX.md").is_file():
-        print(f"engram-constitution: {C} already exists — refusing to overwrite", file=sys.stderr)
+        print(f"constitution: {C} already exists — refusing to overwrite", file=sys.stderr)
         return 2
     packs = [p.strip() for p in a.packs.split(",") if p.strip()]
     for p in packs:
@@ -85,7 +85,7 @@ def main() -> int:
              "STATEMENT": "DRAFT — replace with the first real rule for this pack (When X, the system SHALL Y).",
              "REFS": "governs: root universal rules (fill in)", "EVIDENCE": "DRAFT — no evidence yet" if a.mode=="greenfield" else "TBD — mine from code/docs",
              "COUNTEREXAMPLE": "DRAFT — name the violating change", "GATE": "review"}))
-    print(f"engram-constitution: scaffolded {a.mode} constitution at {C} ({len(packs)} packs)")
+    print(f"constitution: scaffolded {a.mode} constitution at {C} ({len(packs)} packs)")
     if a.docs:
         print(f"docs to mine: {a.docs}")
     return 0
