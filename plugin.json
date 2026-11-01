@@ -1,0 +1,23 @@
+{
+  "name": "constitution",
+  "displayName": "Self-Managing Software Constitution",
+  "description": "Build and maintain evidence-grounded constitutions with knowledge, rules, runbooks, and self-managing registries.",
+  "version": "1.0.0",
+  "publisher": "phanijapps",
+  "license": "Apache-2.0",
+  "engines": { "python": ">=3.8" },
+  "entry": "skill/SKILL.md",
+  "scripts": {
+    "scaffold": "skill/scripts/scaffold.py",
+    "derive": "skill/scripts/derive_catalogue.py",
+    "health": "skill/scripts/health.py",
+    "query": "skill/scripts/query.py",
+    "validate": "skill/scripts/validate.py",
+    "lint": "skill/scripts/lint.py"
+  },
+  "activationEvents": [
+    "onCommand:constitution.scaffold",
+    "onCommand:constitution.health",
+    "onCommand:constitution.query"
+  ]
+}

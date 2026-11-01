@@ -1,0 +1,22 @@
+{
+  "name": "constitution",
+  "displayName": "Self-Managing Software Constitution",
+  "description": "Build, ground, maintain, and query a software constitution for any repository — evidence-grounded rules, knowledge packs, runbooks, derived registry, health detection, module sub-constitutions.",
+  "version": "1.0.0",
+  "publisher": "phanijapps",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/phanijapps/constitution",
+  "homepage": "https://phanijapps.github.io/constitution/",
+  "categories": ["coding-agent", "governance", "documentation", "ci"],
+  "keywords": ["constitution", "spec-driven", "governance", "rules", "knowledge", "runbooks", "ste", "ears", "bcp14"],
+  "agents": {
+    "claude-code": { "skill": "skill/", "install": "~/.claude/skills/constitution" },
+    "codex": { "skill": "skill/", "install": "~/.agents/skills/constitution" },
+    "cursor": { "skill": "skill/", "install": "~/.cursor/skills/constitution" },
+    "github-copilot": { "skill": "skill/", "install": ".github/agents/constitution" }
+  },
+  "scripts": {
+    "install": "./install.sh",
+    "install-windows": ".\\install.ps1"
+  }
+}

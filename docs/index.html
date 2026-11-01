@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>constitution — the self-managing software constitution</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; background: #0d1117; color: #c9d1d9; }
+    .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { text-align: center; padding: 3rem 0 2rem; }
+    h1 { font-size: 2.2rem; color: #58a6ff; margin-bottom: .5rem; }
+    .tagline { font-size: 1.15rem; color: #8b949e; }
+    .badges { margin: 1.5rem 0; }
+    .badge { display: inline-block; padding: .25rem .75rem; border-radius: 1rem; font-size: .85rem; margin: .25rem; }
+    .badge-blue { background: #1f6feb33; color: #58a6ff; }
+    .badge-green { background: #23863633; color: #3fb950; }
+    .badge-purple { background: #8957e533; color: #bc8cff; }
+    section { margin: 2.5rem 0; }
+    h2 { font-size: 1.5rem; color: #58a6ff; margin-bottom: 1rem; border-bottom: 1px solid #21262d; padding-bottom: .5rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+    th, td { padding: .6rem .8rem; text-align: left; border: 1px solid #21262d; }
+    th { background: #161b22; color: #58a6ff; }
+    td { color: #c9d1d9; }
+    code { background: #161b22; padding: .2rem .4rem; border-radius: .25rem; font-size: .9em; color: #79c0ff; }
+    pre { background: #161b22; padding: 1rem; border-radius: .5rem; overflow-x: auto; border: 1px solid #21262d; }
+    pre code { background: none; padding: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .card { background: #161b22; border: 1px solid #21262d; border-radius: .5rem; padding: 1.2rem; }
+    .card h3 { color: #58a6ff; font-size: 1rem; margin-bottom: .4rem; }
+    .card p { font-size: .9rem; color: #8b949e; }
+    footer { text-align: center; padding: 2rem 0; color: #484f58; font-size: .85rem; border-top: 1px solid #21262d; }
+    a { color: #58a6ff; text-decoration: none; } a:hover { text-decoration: underline; }
+    .lanes { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+    .lane { flex: 1; min-width: 200px; background: #161b22; border-radius: .5rem; padding: 1rem; border-top: 3px solid; }
+    .lane-derived { border-color: #3fb950; } .lane-detect { border-color: #d29922; } .lane-human { border-color: #f85149; }
+    .lane h3 { font-size: .95rem; margin-bottom: .3rem; } .lane p { font-size: .85rem; color: #8b949e; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>constitution</h1>
+      <p class="tagline">The self-managing software constitution — build it, ground it, maintain it, query it.</p>
+      <div class="badges">
+        <span class="badge badge-blue">v1.0</span>
+        <span class="badge badge-green">Apache-2.0</span>
+        <span class="badge badge-purple">inspired by software/constitution™</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Why</h2>
+      <p>Software projects accumulate rules — design invariants, security constraints, testing discipline — that live in tribal knowledge and decay. <a href="https://softwareconstitution.com/">software/constitution™</a> made those rules machine-checkable at CI time. This project goes further: the constitution is <strong>built from evidence</strong>, <strong>maintained by detection</strong>, and <strong>queried by symptom</strong> — across the full software lifecycle.</p>
+    </section>
+
+    <section>
+      <h2>The three self-management lanes</h2>
+      <div class="lanes">
+        <div class="lane lane-derived">
+          <h3>🟢 Derived</h3>
+          <p>The registry is a build artifact. Regenerated from rule files on every push. Humans never hand-edit it.</p>
+        </div>
+        <div class="lane lane-detect">
+          <h3>🟡 Detect & Advise</h3>
+          <p>Health checks find size-law crossings, drift, orphans. The agent advises you with evidence — never a drafted diff.</p>
+        </div>
+        <div class="lane lane-human">
+          <h3>🔴 Human-Decided</h3>
+          <p>Rule changes, splits, structural evolution. You ask; the skill drafts with alternatives; you ratify.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>How it differs from software/constitution™</h2>
+      <table>
+        <tr><th></th><th>software/constitution™</th><th>constitution</th></tr>
+        <tr><td><strong>Focus</strong></td><td>CI-time enforcement</td><td>Full lifecycle: build → maintain → query</td></tr>
+        <tr><td><strong>Creation</strong></td><td>Copy templates, author by hand</td><td>Agent-driven: interview or mine code+docs</td></tr>
+        <tr><td><strong>Knowledge</strong></td><td>Not addressed</td><td>Domain packs, progressive loading, STE style</td></tr>
+        <tr><td><strong>Rules</strong></td><td>Written by humans</td><td>Evidence-cited + counterexample-named</td></tr>
+        <tr><td><strong>Registry</strong></td><td>Hand-maintained JSON</td><td>Derived: drift = CI failure</td></tr>
+        <tr><td><strong>Search</strong></td><td>Not addressed</td><td>Symptom → rule → root cause in one query</td></tr>
+        <tr><td><strong>Runbooks</strong></td><td>Not addressed</td><td>Versioned, scar-born, post-incident checklist</td></tr>
+        <tr><td><strong>Monorepo</strong></td><td>Not addressed</td><td>Module sub-constitutions</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Quick start</h2>
+      <pre><code># Linux/Mac
+git clone https://github.com/phanijapps/constitution
+cd constitution
+./install.sh
+
+# Windows PowerShell
+.\install.ps1</code></pre>
+      <p>The installer asks you to pick your coding agent and copies the skill to the right place.</p>
+    </section>
+
+    <section>
+      <h2>What you get</h2>
+      <div class="grid">
+        <div class="card"><h3>📋 scaffold</h3><p>Greenfield (interview) or brownfield (mine code+docs) — builds the 8-pack structure with charters, knowledge, and DRAFT rules.</p></div>
+        <div class="card"><h3>🔍 query</h3><p>Search rules, knowledge, and runbooks by symptom or concept. Returns progressive-loading-sized results with prerequisites.</p></div>
+        <div class="card"><h3>🩺 health</h3><p>Detects size-law crossings, orphan fragments, uncatalogued rules, undeclared modules. Advisory findings with evidence.</p></div>
+        <div class="card"><h3>⚙️ derive</h3><p>Regenerates the catalogue from rule files. The registry is a build artifact — never hand-edited.</p></div>
+        <div class="card"><h3>📖 runbooks</h3><p>Versioned procedural documents for incident response. Scar-born, post-incident checklist enforced.</p></div>
+        <div class="card"><h3>🏗️ modules</h3><p>Monorepo sub-constitutions per service or independently-published package.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Spec</h2>
+      <p>Read the <a href="../SPEC.md">full specification</a> or the <a href="https://github.com/phanijapps/constitution/blob/main/SPEC.md">canonical version on GitHub</a>.</p>
+    </section>
+
+    <footer>
+      <p>Inspired by <a href="https://softwareconstitution.com/">software/constitution™</a> (Apache-2.0). This project extends it beyond CI-time enforcement.</p>
+      <p>License: Apache-2.0 · <a href="https://github.com/phanijapps/constitution">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>
