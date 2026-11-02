@@ -1,5 +1,16 @@
-# {{PACK}} — knowledge
+---
+type: knowledge
+title: {{TITLE}}
+description: {{ONE_LINE_SUMMARY}}
+pack: {{PACK}}
+status: draft
+tags: []
+created_on: {{DATE}}
+prerequisites: []
+token_estimate: 0
+forward_links: []
+backward_links: []
+semantic_links: []
+---
 
-{{KNOWLEDGE: the explaining content — what this domain of the project IS,
-how it works, the real names and seams. Brownfield: absorbed/mined from code
-+ docs with evidence. Greenfield: from the interview, marked as intent.}}
+{{KNOWLEDGE}}

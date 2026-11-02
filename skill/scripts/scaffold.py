@@ -81,10 +81,14 @@ def main() -> int:
         # seed one DRAFT rule per pack (greenfield placeholder; brownfield replaces during mining)
         seed = f"{PREFIX[p]}-001"
         (pd/"rules"/f"{seed}.md").write_text(fill((TPL/"rule.template.md").read_text(),
-            {"RULE_ID": seed, "PACK": p,
-             "STATEMENT": "DRAFT — replace with the first real rule for this pack (When X, the system SHALL Y).",
-             "REFS": "governs: root universal rules (fill in)", "EVIDENCE": "DRAFT — no evidence yet" if a.mode=="greenfield" else "TBD — mine from code/docs",
-             "COUNTEREXAMPLE": "DRAFT — name the violating change", "GATE": "review"}))
+            {"RULE_ID": seed, "TITLE": f"First {p} rule (draft)",
+             "ONE_LINE_SUMMARY": "Replace with the first real rule for this pack.",
+             "PACK": p, "DATE": date,
+             "GENERATED_BY": "constitution-skill",
+             "EVIDENCE_PATH": "DRAFT" if a.mode=="greenfield" else "TBD",
+             "EVIDENCE_LINES": "",
+             "STATEMENT": "DRAFT — When <trigger>, the system SHALL <response>.",
+             "COUNTEREXAMPLE": "DRAFT — name the violating change."}))
     print(f"constitution: scaffolded {a.mode} constitution at {C} ({len(packs)} packs)")
     if a.docs:
         print(f"docs to mine: {a.docs}")

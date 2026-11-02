@@ -21,6 +21,7 @@ scripts/             scaffold.py (greenfield|brownfield|module skeleton) ·
                      derive_catalogue.py (lane 1: regenerate the registry) ·
                      health.py (lane 2: detect size law, drift, orphans) ·
                      query.py (search rules, knowledge, runbooks by terms) ·
+                     graph.py (build/validate/visualize the knowledge graph) ·
                      validate.py (structure + catalogue) · lint.py (length)
 evals/               test_scaffold.py (6 tests)
 ```
@@ -96,6 +97,40 @@ the post-incident checklist in the template enforces this. Runbooks are
 scar-born: they start from the first incident and grow from real experience,
 never from speculation. The constitution skill drafts them in the
 imperative steps.
+
+## Knowledge graph (OKF frontmatter)
+
+Every constitution artifact carries OKF-style YAML frontmatter with typed links:
+
+```yaml
+---
+type: rule | knowledge | runbook | index
+id: PLT-001
+title: Per-project storage isolation
+description: One-line summary
+pack: platform
+status: draft | stable | deprecated
+tags: [storage, isolation]
+created_on: 2026-11-01
+forward_links:
+  - { target: PRD-101, relation: refines }
+  - { target: check_distribution_drift, relation: enforced-by }
+backward_links:
+  - { target: SEC-601, relation: refined-by }
+semantic_links:
+  - { target: knowledge/platform/storage.md, relation: described-by }
+---
+```
+
+The link kinds: `forward` (this node points to another), `backward` (reverse
+edges, validated for reciprocity), `semantic` (cross-domain "see also").
+Build and validate with:
+
+```bash
+python3 scripts/graph.py <repo> --validate   # check link integrity
+python3 scripts/graph.py <repo> --dot        # Graphviz DOT output
+python3 scripts/graph.py <repo> --json       # full graph as JSON
+```
 
 ## Searching the constitution
 
